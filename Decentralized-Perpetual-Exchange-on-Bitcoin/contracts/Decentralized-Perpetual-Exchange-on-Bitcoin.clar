@@ -343,3 +343,29 @@
     risk-score: uint
   }
 )
+
+;; YIELD FARMING VAULTS
+(define-map yield-vaults
+  { vault-id: uint }
+  {
+    name: (string-ascii 30),
+    strategy-contract: principal,
+    total-assets: uint,
+    total-shares: uint,
+    performance-fee: uint,
+    management-fee: uint,
+    is-active: bool,
+    risk-level: uint
+  }
+)
+
+(define-map vault-positions
+  { vault-id: uint, user: principal }
+  {
+    shares: uint,
+    deposited-amount: uint,
+    entry-timestamp: uint,
+    accumulated-yield: uint
+  }
+)
+
